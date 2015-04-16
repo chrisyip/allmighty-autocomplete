@@ -11,6 +11,7 @@ app.directive('autocomplete', function() {
       searchParam: '=ngModel',
       suggestions: '=data',
       onType: '=onType',
+      onInputFocus: '=onInputFocus',
       onSelect: '=onSelect',
       autocompleteRequired: '='
     },
@@ -158,6 +159,13 @@ app.directive('autocomplete', function() {
           scope.$apply();
         }, 150);
       }, true);
+
+      element.find("input").on("focus", function (e) {
+        if (scope.onInputFocus) {
+          scope.onInputFocus(e);
+          scope.$apply();
+        }
+      });
 
       element[0].addEventListener("keydown",function (e){
         var keycode = e.keyCode || e.which;

@@ -50,4 +50,8 @@ app.controller('MyCtrl', function($scope, MovieRetriever){
     console.log("Suggestion selected: " + suggestion );
   }
 
+  $scope.doSomethingOnInputFocus = function () {
+    console.log("Input field focused");
+  }
+
 });
