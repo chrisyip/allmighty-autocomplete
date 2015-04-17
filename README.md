@@ -48,6 +48,8 @@ You can also pass a function that receives changes with the `on-type` attribute.
 
 `on-select` : *(optional)* Pass a function that will receive changes, when a suggestion is selected. It passes the full string of the suggestion.
 
+`on-input-focus` : *(optional)* Pass an expression that will be evaluated, when input field is focused. You can pass any variables just like using `ngClick`.
+
 `click-activation` : *(optional)* When `true`, the suggestion box opens on click (unfortunately onfoucs is not implemented properly in most browsers right now). By default it is only activated, when you start typing something.
 
 `ng-model`: What you typed in will be in this variable and accessible in the $scope of the controller.
@@ -98,6 +100,9 @@ JavaScript:
 
 ## Change log
 
+***17.04.2015***
++ `on-input-focus` allows you to handle input field's `focus` event
+
 ***07.03.2014***
 + `attr-input-class` & `attr-input-id` allow you to choose class and id of the input field. Handy when wanting to add bootstrap styles to the input field
 
@@ -118,6 +123,3 @@ JavaScript:
 + select if suggestions should be shown after clicking on input with new parameter `click-activation`
 + Added customizable placeholders for input line
 + FIXED multiple autocomplete directives in one controller are now possible and behave as expected
-
-
-

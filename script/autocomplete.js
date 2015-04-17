@@ -11,7 +11,7 @@ app.directive('autocomplete', function() {
       searchParam: '=ngModel',
       suggestions: '=data',
       onType: '=onType',
-      onInputFocus: '=onInputFocus',
+      onInputFocus: '&onInputFocus',
       onSelect: '=onSelect',
       autocompleteRequired: '='
     },
