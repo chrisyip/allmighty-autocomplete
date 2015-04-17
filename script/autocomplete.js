@@ -163,7 +163,6 @@ app.directive('autocomplete', function() {
       element.find("input").on("focus", function (e) {
         if (scope.onInputFocus) {
           scope.onInputFocus(e);
-          scope.$apply();
         }
       });
 
