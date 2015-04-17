@@ -44,11 +44,11 @@ You can also pass a function that receives changes with the `on-type` attribute.
 
 `data` : Pass an array to the autocomplete directive. Should be accessible in the $scope of your controller.
 
-`on-type` : *(optional)* Pass a function that will receive changes, when somebody types something. It passes the full string for any character typed or deleted. You can use that for example to update the array that you passed in data.
+`on-type` : *(optional)* Pass an expression that will be evaluated, when a somebody types something. The full string for any character is named `typed`: `<autocomplete on-type="onTyped(typed)"></autocomplete>`.
 
-`on-select` : *(optional)* Pass a function that will receive changes, when a suggestion is selected. It passes the full string of the suggestion.
+`on-select` : *(optional)* Pass an expression that will be evaluated, when a suggestion is selected. Selected string is named `suggestion`: `<autocomplete on-select="onSelect(suggestion)"></autocomplete>`.
 
-`on-input-focus` : *(optional)* Pass an expression that will be evaluated, when input field is focused. You can pass any variables just like using `ngClick`.
+`on-input-focus` : *(optional)* Pass an expression that will be evaluated, when input field is focused: `<autocomplete on-input-focus="onInputFocus()"></autocomplete>`
 
 `click-activation` : *(optional)* When `true`, the suggestion box opens on click (unfortunately onfoucs is not implemented properly in most browsers right now). By default it is only activated, when you start typing something.
 
@@ -102,6 +102,7 @@ JavaScript:
 
 ***17.04.2015***
 + `on-input-focus` allows you to handle input field's `focus` event
++ `on-select` & `on-type` now accept multiple arguments
 
 ***07.03.2014***
 + `attr-input-class` & `attr-input-id` allow you to choose class and id of the input field. Handy when wanting to add bootstrap styles to the input field

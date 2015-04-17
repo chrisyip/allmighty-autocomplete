@@ -10,9 +10,9 @@ app.directive('autocomplete', function() {
     scope: {
       searchParam: '=ngModel',
       suggestions: '=data',
-      onType: '=onType',
+      onType: '&onType',
       onInputFocus: '&onInputFocus',
-      onSelect: '=onSelect',
+      onSelect: '&onSelect',
       autocompleteRequired: '='
     },
     controller: ['$scope', function($scope){
@@ -55,8 +55,11 @@ app.directive('autocomplete', function() {
         }
 
         // function thats passed to on-type attribute gets executed
-        if($scope.onType)
-          $scope.onType($scope.searchParam);
+        if ($scope.onType) {
+          $scope.onType({
+            typed: $scope.searchParam
+          });
+        }
       });
 
       // for hovering over suggestions
@@ -86,8 +89,11 @@ app.directive('autocomplete', function() {
         if(suggestion){
           $scope.searchParam = suggestion;
           $scope.searchFilter = suggestion;
-          if($scope.onSelect)
-            $scope.onSelect(suggestion);
+          if ($scope.onSelect) {
+            $scope.onSelect({
+              suggestion: suggestion
+            });
+          }
         }
         watching = false;
         $scope.completing = false;
